@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Vue.js -->
+   <script src="https://unpkg.com/vue@next"></script>
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <!-- Axios -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+   <!--Own CSS-->
+   <link rel="stylesheet" href="style.css">
+   <title>Movies</title>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h1 class="display-3">Movies</h1>
+        <div class="row">
+            <div class="col">
+              <div class="">
+                <p>1. Vise en tabel over alle Movies
+                    2. Oprette en ny movie, her skal brugeren kunne indtaste: MovieName, LengthInMinutes og 
+                    CountryOfOrigin
+                    3. Du skal anvende Bootstrap til HTML elementerne.</p>
+              </div>
+
+              <!--<h6><i>Filtere på længden: (Vue)</i>:</h6>
+              <input v-model.number="filter1" id="filterId" placeholder="" type="text" />-->
+
+                    <h6><i>Filtere på længden af minutter for filmen: (REST) </i>:</h6>
+                    <input v-model.number="filter" placeholder="" type="text" />
+                    <button class="btn btn-dark" v-on:click="getFilter()">Search</button>
+                    <br>
+                    <br>
+              <div class="row justify-content-center">
+                <table class="table table-sm table table-striped" id="getMovies" v-if="movies.length > 0" style="width: 50%">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">LengthInMinutes</th>
+                        <th scope="col">CountryOfOrigin</th>
+                      </tr>
+                    </thead>
+                    <tbody v-for="movie in movies">
+                        <!--<tr v-if="this.filter1 > movie.lengthInMinutes">-->
+                          <td> {{ movie.id }} </td>
+                        <td> {{ movie.name }} </td>
+                        <td> {{ movie.lengthInMinutes }} </td>
+                        <td> {{ movie.countryOfOrigin }} </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            <div class="row">
+              <div class="col">
+                <h3>Add Movie </h3>
+                <input v-model="addData.name" placeholder="name..." type="text" />
+                <input v-model.number="addData.lengthInMinutes" placeholder="movie lenght..." type="number" />
+                <input v-model.number="addData.countryOfOrigin" placeholder="country..." type="text" />
+
+                <button v-on:click="addMovies()" class="btn btn-dark">Add a movie</button>
+                <div class="styleInput" v-if="addMessage">
+                  {{ addMessage }}
+                </div>
+
+               
+            </div>
+        </div>
+                </div>
+              </div>
+            </div>
+            <!--<div class="row">
+              <div class="col">
+                <h3>Search on an ID </h3>
+                <input v-model.number="id" placeholder="Id nr..." type="number" />
+                <button class="btn btn-dark" v-on:click="getByWineCoolerId()">Search</button>
+                <br>
+                <div class="styleInput" v-if="getWineData">
+                  <b>Id:</b> {{ getWineData.id }} 
+                  <b>Capacity Of Bottles:</b> {{ getWineData.capacityOfBottles }} 
+                  <b>Temp: </b> {{ getWineData.temp }} 
+                  <b>Bottles In Storage:</b>  {{ getWineData.bottlesInStorage }}
+                </div>
+              </div>
+            </div>
+           
+            <h3> Opgave 7 </h3>
+            <input v-model="idCooler" placeholder="id..." type="number" />
+            <button v-on:click="addWineCoolerLib()" class="btn btn-dark">Add a bottle</button>
+            <div class="styleInput" v-if="addMessage1">
+              {{addMessage1}}
+            </div>-->
+            <br><br>  
+     <!-- Javascript-reference -->
+     <script src="script.js"></script>
+</body>
+</html>
